@@ -1,0 +1,141 @@
+img{
+  /* position:absolute; */
+  z-index: -1;
+}
+.circle1{
+    height: 10PX;
+    width: 10px;
+    border-radius: 50%;
+    border : 3px solid blue;
+    margin: 10px ;
+    background-color: yellow;
+    position: absolute;
+    top: 119px; left: 425px;
+    z-index: 2;      
+} 
+.circle2{
+    height: 10PX;
+    width: 10px;
+    border-radius: 50%;
+    border : 3px solid blue;
+    margin: 10px ;
+    background-color: yellow;
+    position: absolute;
+    top: 110px; left: 431px;     
+}
+.circle3{
+  height: 10PX;
+  width: 10px;
+  border-radius: 50%;
+  border : 3px solid blue;
+  margin: 10px ;
+  background-color: yellow;
+  position: absolute;
+  top: 135px; left: 70px;  
+}
+.circle4{
+  height: 10PX;
+  width: 10px;
+  border-radius: 50%;
+  border : 3px solid blue;
+  margin: 10px ;
+  background-color: yellow;
+  position: absolute;
+  top: 145px; left: 80px;   
+}
+.circle5{
+  height: 10PX;
+  width: 10px;
+  border-radius: 50%;
+  border : 3px solid blue;
+  margin: 10px ;
+  background-color: yellow;
+  position: absolute;
+  /* top: 0px ;left: 0px; */
+  top: 145px; left: 480px;   
+}
+#myCanvas{
+  top: 0px; left: 50px; 
+  position: absolute;
+  height:90PX;
+  width: 50px;
+  color:red;
+  z-index : 5;
+}
+#oblique{
+  top: 0px; left: 100px; 
+  position: absolute;
+  height: 50PX;
+  width: 50px;
+  color:red;
+  z-index: 13;
+}
+
+/* #Paris {
+    background-color : #FF0000;
+}
+#London{
+    background-color : #00FF00;
+}
+#blue{
+    background-color : #0000FF;
+} */
+
+       /* Popup container */
+        .popup {
+          position: absolute;
+          display: inline-block; 
+          cursor: pointer;
+          /* top : 40px; */
+        }
+        
+        /* The actual popup (appears on top) */
+        .popup .popuptext {
+          visibility: hidden;
+          width: 160px;
+          height: 160px;
+          background-color: #dddbe5;
+          color: #670606;
+          text-align: center;
+          border-radius: 6px;
+          padding: 8px 0;
+          /* position: fixed; */
+          z-index: 3;
+          /* bottom: 125%;
+          left: 50%; */
+          /* margin-left: -80px; */
+        }
+        /* .popup2 .popuptext {
+          visibility: hidden;
+          width: 60px;
+          height: 10px;
+          background-color: #dddbe5;
+          color: orangered;} */
+        /* Popup arrow */
+        .popup .popuptext::after {
+          content: "";
+          /* position: absolute; */
+          /* top: 100%;
+          left: 50%; */
+          margin-left: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: #555 transparent transparent transparent;
+        }
+        
+        /* Toggle this class when clicking on the popup container (hide and show the popup) */
+        .popup .show {
+          visibility: visible;
+          display : block;
+          /* -webkit-animation: fadeIn 1s;
+          animation: fadeIn 1s */
+        }
+        .popup .hide {
+          visibility: hidden;
+          display: none;
+        }  
+          /* -webkit-animation: fadeIn 1s;
+          animation: fadeIn 1s */
+        
+         
+        

@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>“Worldmap”</title>
+    <link rel="stylesheet" href="popup.css">        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+       
+</head>
+    
+<body>
+<div class="image-center" id = "container">
+    <img  src="worldmap.jpg" alt="Workplace" 
+    usemap="#workmap" width="1000" 
+    height="500" class="image"
+    onclick="hide_popup()"/>
+
+    <canvas
+    id="myCanvas"   
+    onclick="hide_popup()"></canvas>
+        
+    <map name ="workmap"> 
+            
+        <div class="circle1" id = "Paris"  onclick="show_popup(40)" >Paris </div>
+        <div class="circle2" id= "London"  onclick="show_popup(50)" >London </div>
+        <div class="circle3" id = "Vancouver"  onclick="show_popup(20)" >Vancouver </div>
+        <div class="circle4" id= "Los Angeles"  onclick="show_popup(30)" >Los Angeles </div>
+        <div class="circle5" id= "New Delhi"  onclick="show_popup(60)" >New Delhi </div> 
+        
+    </map>
+    
+  
+    <div class="popup" name = "popup" onclick="show_popup()"> 
+        <span class="popuptext" id="myPopup"></span>
+    </div>
+</div> 
+<script>
+
+const  middlepoint = 250 ;
+  
+function hide_popup() {
+    var popup = document.getElementById("myPopup");
+        popup.classList.remove("show");
+        $('#myCanvas').css('display' , 'none' );
+        $(".popup").css('display' , 'none');
+        // var pop  = document.getElementById("myCanvas");      
+} 
+// When the user clicks on <div>, open the popup    
+function show_popup(x) {
+    $('#myCanvas').css('display' , 'inline' );
+    $(".popup").css('display' , 'inline');
+   
+  var popup = document.getElementById("myPopup");
+  switch(x)
+    {
+    case 20 :{
+        popup.classList.add("show");
+        popup.innerHTML =  "Vancouver" ;
+     
+        x = 0 ;
+    }
+    break;
+    case 30 :{
+        popup.classList.add("show");
+        popup.innerHTML =  "Los Angeles" ;
+        x = 0 ;
+    }
+    break;
+    case 40 :{
+        popup.classList.add("show");
+        popup.innerHTML =  "Paris" ;
+           
+    }
+    break;
+    case 50 :{
+        popup.classList.add("show");
+        popup.innerHTML =  "London" ;
+        x = 0 ;}
+    break;
+    case 60:{
+        popup.classList.add("show");
+        popup.innerHTML =  "New Delhi";
+        x = 0 ;}
+    
+    break;  
+    case 0:{
+        popup.classList.remove("show");
+        popup.innerHTML =  "";
+        console.log(x);
+        }
+    
+    break;  
+    default:{
+        x=0;
+        popup.classList.remove("show");
+        popup.innerHTML =  "";
+        console.log(x);  
+    } 
+    }
+   // 
+}// myfunction show_popup
+
+
+$(window).click(function(e) {
+    function drawLines( ) {
+        //should be the normal event sender thing
+        console.log("here in draw function");
+        const c = document.getElementById("myCanvas");
+        const ctx = c.getContext("2d"); 
+        ctx.clearRect(0, 0, 500, 500);   
+        ctx.strokeStyle =  '#ff0000' ; //red
+        ctx.beginPath();
+        ctx.moveTo(50, 0);
+        ctx.lineTo(300 ,0);
+        if  ( e.pageX > middlepoint)
+          { console.log("right");
+            ctx.moveTo(300, 0);
+            ctx.lineTo(50 ,100);
+            ctx.lineWidth = 10;
+            ctx.stroke();}
+        else
+          { console.log("left");
+            ctx.moveTo(0, 0);
+            ctx.lineTo(300 ,150);
+            ctx.lineWidth = 10;
+            ctx.stroke();}       
+    }
+   
+     drawLines();
+    console.log("pageX= "+ e.pageX);
+    console.log("pageY=" + e.pageY);
+    console.log("Screen x= "+ event.screenX) ;
+    console.log("Screen y= "+ event.screenY) ;
+    // console.log("position.pagex " + e.position.pageX);  
+    
+  if  ( e.pageX > middlepoint)
+  {  let px = e.pageX + 50;
+    $(".popup").css({left: e.pageX - 190 });
+    $(".popup").css({top: e.pageY });
+    $("#myCanvas").css({top: e.pageY });
+    $("#myCanvas").css({left: e.pageX - 40 });
+    $("#myCanvas").css({width:40 });  
+  }
+  else
+  {
+    $(".popup").css({left: e.pageX + 40 });
+    $(".popup").css({top: e.pageY });
+    $("#myCanvas").css({top: e.pageY });
+    $("#myCanvas").css({left: e.pageX   });
+    $("#myCanvas").css({width:40 });
+  }
+}); 
+
+</script>
+</body>
+</html>
